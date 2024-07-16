@@ -22,9 +22,14 @@ function CartContext({children}) {
     const removeFromCart = (itemId)=>{
         setCartItems((prev)=>({...prev, [itemId]: prev[itemId] - 1}))
     }
+    const deleteFromCart = (itemId)=>{
+        // console.log(cartItems[id] = 0);
+        setCartItems((prev)=>({...prev, [itemId]: 0}))
+      }
 
-    const contextValue ={cartItems, addToCart, removeFromCart, productArray}
-    console.log(cartItems);
+
+    const contextValue ={cartItems, addToCart, removeFromCart, productArray, deleteFromCart}
+    
 
   return (
     <ShopCart.Provider value={contextValue}>
